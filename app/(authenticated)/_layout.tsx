@@ -1,12 +1,16 @@
 import { Tabs } from 'expo-router';
 import { CarFront, CircleUser, House, ScanQrCode, Users } from 'lucide-react-native';
 import { Platform } from 'react-native';
+import { useTheme } from '../../hooks/useTheme';
 
 export default function AuthenticatedLayout() {
+  const { theme } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarActiveTintColor: theme.primary,
         tabBarStyle: Platform.select({
           ios: {
             // Use a transparent background on iOS to show the blur effect

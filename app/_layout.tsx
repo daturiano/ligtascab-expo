@@ -1,18 +1,20 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import * as React from 'react';
 import 'react-native-reanimated';
+import { useTheme } from '../hooks/useTheme';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+export { ErrorBoundary } from 'expo-router';
 
 export default function RootLayout() {
+  const { theme } = useTheme();
+
   return (
     <>
       <StatusBar />
-      <Stack>
+      <Stack
+        screenOptions={{
+          headerTintColor: theme.primary,
+        }}>
         <Stack.Screen name="(authenticated)" options={{ headerShown: false }} />
       </Stack>
     </>

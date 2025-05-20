@@ -1,12 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { StyleSheet } from 'react-native';
+import ThemedText from '~/components/themed/themed-text';
+import ThemedView from '~/components/themed/themed-view';
 
 export default function HomePage() {
   return (
-    <View>
-      <Text>HomePage</Text>
-    </View>
+    <ThemedView style={styles.container}>
+      <ThemedText>HomePage</ThemedText>
+    </ThemedView>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
