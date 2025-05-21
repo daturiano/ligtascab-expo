@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '~/hooks/use-theme';
 
 export { ErrorBoundary } from 'expo-router';
 
