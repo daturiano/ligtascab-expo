@@ -1,5 +1,5 @@
 import { StyleProp, Text, TextProps, TextStyle } from 'react-native';
-import { useTheme } from '~/hooks/use-theme';
+import { useTheme } from './theme-provider';
 
 type ThemedTextProps = {
   style?: StyleProp<TextStyle>;

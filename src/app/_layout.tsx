@@ -1,22 +1,19 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-import { useTheme } from '~/hooks/use-theme';
-
+import { ThemeProvider } from '~/src/components/theme-provider';
 export { ErrorBoundary } from 'expo-router';
 
 export default function RootLayout() {
-  const { theme } = useTheme();
-
   return (
-    <>
+    <ThemeProvider>
       <StatusBar />
       <Stack
         screenOptions={{
-          headerTintColor: theme.primary,
+          headerTintColor: '#1daa88',
         }}>
         <Stack.Screen name="(authenticated)" options={{ headerShown: false }} />
       </Stack>
-    </>
+    </ThemeProvider>
   );
 }

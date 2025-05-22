@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Logo from '../../../components/logo';
-import ThemedView from '../../../components/themed/themed-view';
 import { Bell } from 'lucide-react-native';
+import ThemedIcon from '~/src/components/themed-icon';
+import ThemedView from './themed-view';
+import Logo from './ui/logo';
 
 export default function HomeHeader() {
   return (
@@ -10,7 +11,7 @@ export default function HomeHeader() {
         <Logo />
         <Text style={styles.brandName}>ligtascab.</Text>
       </View>
-      <Bell />
+      <ThemedIcon icon={Bell} />
     </ThemedView>
   );
 }

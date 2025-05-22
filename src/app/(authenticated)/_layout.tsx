@@ -1,9 +1,8 @@
 import { Tabs } from 'expo-router';
 import { CarFront, CircleUser, House, ScanQrCode, Users } from 'lucide-react-native';
-import { Platform } from 'react-native';
-import { useTheme } from '../../hooks/use-theme';
-import HomeHeader from '~/features/dashboard/components/home-header';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import HomeHeader from '~/src/components/home-header';
+import { useTheme } from '~/src/components/theme-provider';
 
 export default function AuthenticatedLayout() {
   const { theme } = useTheme();
@@ -17,13 +16,7 @@ export default function AuthenticatedLayout() {
         screenOptions={{
           headerShown: false,
           tabBarActiveTintColor: theme.primary,
-          tabBarStyle: Platform.select({
-            ios: {
-              // Use a transparent background on iOS to show the blur effect
-              position: 'absolute',
-            },
-            default: {},
-          }),
+          tabBarStyle: { backgroundColor: theme.background },
         }}>
         <Tabs.Screen
           name="index"
