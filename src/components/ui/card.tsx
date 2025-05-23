@@ -35,9 +35,11 @@ export function CardFooter({ style, ...props }: CardSectionProps) {
 
 const styles = StyleSheet.create({
   card: {
-    width: '90%',
+    width: '100%',
+    height: '100%',
     gap: 24,
     flexDirection: 'column',
+    justifyContent: 'space-between',
     borderWidth: 0,
     borderRadius: 12,
     shadowColor: 'rgba(0, 0, 0, 0.1)',
@@ -63,7 +65,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 24,
   },
   footer: {
     flexDirection: 'row',

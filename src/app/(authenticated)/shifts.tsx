@@ -1,5 +1,7 @@
 import { Image } from 'expo-image';
+import { useState } from 'react';
 import { StyleSheet } from 'react-native';
+import QRScanner from '~/src/components/qr-scanner';
 import ThemedView from '~/src/components/themed-view';
 import { Button } from '~/src/components/ui/button';
 import {
@@ -12,20 +14,35 @@ import {
 } from '~/src/components/ui/card';
 
 export default function ShiftPage() {
+  const [isScanning, setIsScanning] = useState<boolean>(false);
+
+  const isScanningHandler = () => {
+    setIsScanning((prev) => !prev);
+  };
   return (
     <ThemedView style={styles.container}>
       <Card>
         <CardHeader>
           <CardTitle>Log Driver Attendance</CardTitle>
           <CardDescription>
-            &quot;Start Log Attendance&quot; to start scanning QR Code.
+            {isScanning
+              ? 'Log driver using the QR Code and required details.'
+              : '"Start Log Attendance" to start scanning QR Code.'}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Image style={styles.image} source={require('~/assets/scan-dark.png')} />
+          {isScanning ? (
+            <QRScanner />
+          ) : (
+            <Image style={styles.image} source={require('~/assets/qr.png')} />
+          )}
         </CardContent>
         <CardFooter>
-          <Button title="Start Log Attendance" />
+          <Button
+            title={isScanning ? 'Cancel' : 'Start Log Attendance'}
+            onPress={isScanningHandler}
+            variant={isScanning ? 'secondary' : 'primary'}
+          />
         </CardFooter>
       </Card>
     </ThemedView>
@@ -36,9 +53,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
   image: {
-    width: 240,
-    height: 240,
+    width: 280,
+    height: 280,
   },
 });

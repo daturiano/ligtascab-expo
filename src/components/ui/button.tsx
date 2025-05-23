@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import { useTheme } from '../theme-provider';
 import { Theme } from '~/src/theme/colors';
+import { useTheme } from '../theme-provider';
 
 type ButtonProps = {
   title: string;
@@ -18,7 +18,7 @@ export function Button({ title, variant = 'primary', ...props }: ButtonProps) {
   );
 }
 
-type Variant = 'primary' | 'outline' | 'ghost';
+type Variant = 'primary' | 'outline' | 'ghost' | 'secondary';
 
 export const createButtonStyles = (theme: Theme, variant: Variant = 'primary') => {
   const variants: Record<Variant, object> = {
@@ -32,7 +32,18 @@ export const createButtonStyles = (theme: Theme, variant: Variant = 'primary') =
     outline: {
       backgroundColor: 'transparent',
       borderWidth: 1,
-      borderColor: theme.primary,
+      borderColor: theme.bgForeground,
+      width: '100%',
+      padding: 12,
+      borderRadius: 8,
+      alignItems: 'center',
+    },
+    secondary: {
+      backgroundColor: theme.secondary,
+      width: '100%',
+      padding: 12,
+      borderRadius: 8,
+      alignItems: 'center',
     },
     ghost: {
       backgroundColor: 'transparent',
@@ -42,7 +53,7 @@ export const createButtonStyles = (theme: Theme, variant: Variant = 'primary') =
   return StyleSheet.create({
     button: { ...variants[variant] },
     text: {
-      color: variant === 'primary' ? '#ffffff' : theme.primary,
+      color: variant === 'primary' ? '#ffffff' : theme.text,
       fontWeight: '600',
       fontSize: 12,
     },
