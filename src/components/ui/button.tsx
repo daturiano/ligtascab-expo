@@ -2,6 +2,8 @@ import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react
 import { Theme } from '~/src/theme/colors';
 import { useTheme } from '../theme-provider';
 
+type Variant = 'primary' | 'outline' | 'ghost' | 'secondary';
+
 type ButtonProps = {
   title: string;
   variant?: Variant;
@@ -18,9 +20,7 @@ export function Button({ title, variant = 'primary', ...props }: ButtonProps) {
   );
 }
 
-type Variant = 'primary' | 'outline' | 'ghost' | 'secondary';
-
-export const createButtonStyles = (theme: Theme, variant: Variant = 'primary') => {
+const createButtonStyles = (theme: Theme, variant: Variant = 'primary') => {
   const variants: Record<Variant, object> = {
     primary: {
       width: '100%',
