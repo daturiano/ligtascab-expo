@@ -18,7 +18,7 @@ export default function ThemedText({ style, size = 'sm', ...props }: ThemedTextP
 const createFontSizeStyles = (size: FontSize = 'sm') => {
   const sizes: Record<FontSize, object> = {
     xs: {
-      fontSize: 12,
+      fontSize: 14,
     },
     sm: {
       fontSize: 16,

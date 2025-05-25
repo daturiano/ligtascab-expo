@@ -19,7 +19,7 @@ export default function AuthenticatedLayout() {
           tabBarStyle: { backgroundColor: theme.background },
         }}>
         <Tabs.Screen
-          name="index"
+          name="home"
           options={{
             title: 'Home',
             tabBarIcon: ({ color, size, focused }) => (

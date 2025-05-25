@@ -11,8 +11,11 @@ export default function RootLayout() {
       <Stack
         screenOptions={{
           headerTintColor: '#1daa88',
+          headerShown: false,
         }}>
-        <Stack.Screen name="(authenticated)" options={{ headerShown: false }} />
+        <Stack.Screen name="index" />
+        <Stack.Screen name="(private)" />
+        <Stack.Screen name="(authentication)" />
       </Stack>
     </ThemeProvider>
   );

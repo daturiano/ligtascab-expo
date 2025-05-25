@@ -34,7 +34,7 @@ export default function ShiftPage() {
           {isScanning ? (
             <QRScanner />
           ) : (
-            <Image style={styles.image} source={require('~/assets/qr.png')} />
+            <Image style={styles.image} source={require('~/src/assets/qr.png')} />
           )}
         </CardContent>
         <CardFooter>

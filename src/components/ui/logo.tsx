@@ -9,7 +9,7 @@ type LogoProps = {
 
 export default function Logo({ variant = 'small' }: LogoProps) {
   const styles = createLogoStyles(variant);
-  return <Image style={styles.size} source={require('~/assets/logo.svg')} />;
+  return <Image style={styles.size} source={require('~/src/assets/logo.svg')} />;
 }
 
 const createLogoStyles = (variant: Variant = 'small') => {

@@ -20,6 +20,7 @@ export default function ThemedView({ style, safe = false, ...props }: ThemedView
           backgroundColor: theme.background,
           paddingTop: insets.top,
           paddingBottom: insets.bottom,
+          paddingHorizontal: 32,
         },
         style,
       ]}

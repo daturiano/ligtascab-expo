@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
-import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Button } from './ui/button';
-import ThemedText from './themed-text';
+import { CameraType, CameraView, useCameraPermissions } from 'expo-camera';
 import { SwitchCamera } from 'lucide-react-native';
-import ThemedIcon from './themed-icon';
+import { useEffect, useState } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default function QRScanner() {
   const [facing, setFacing] = useState<CameraType>('back');
