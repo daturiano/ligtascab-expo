@@ -1,18 +1,9 @@
 import { Link } from 'expo-router';
-import { AppState, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '~/src/components/theme-provider';
 import ThemedText from '~/src/components/themed-text';
 import ThemedView from '~/src/components/themed-view';
 import Logo from '~/src/components/ui/logo';
-import { supabase } from '~/src/services/supabase';
-
-AppState.addEventListener('change', (state) => {
-  if (state === 'active') {
-    supabase.auth.startAutoRefresh();
-  } else {
-    supabase.auth.stopAutoRefresh();
-  }
-});
 
 export default function Index() {
   const { theme } = useTheme();

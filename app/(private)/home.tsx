@@ -11,7 +11,7 @@ export default function HomePage() {
         <Text>Sign Out</Text>
       </Pressable>
       <Link href="/">
-        <Text>Go to Index</Text>
+        <Text>Go to</Text>
       </Link>
     </ThemedView>
   );

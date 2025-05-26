@@ -1,16 +1,21 @@
 import { useRouter } from 'expo-router';
 import React, { useEffect } from 'react';
 import { useAuth } from '~/src/hooks/use-auth';
+import ThemedLoader from '../themed-loader';
 
 export default function AuthenticatedViewOnly({ children }: { children: React.ReactNode }) {
-  const { session, loading } = useAuth();
+  const { session, authChecked } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && session === null) {
-      router.replace('/');
+    if (authChecked && session === null) {
+      router.replace('/(authentication)/login');
     }
-  }, [router, loading, session]);
+  }, [authChecked, router, session]);
+
+  if (!authChecked || !session) {
+    return <ThemedLoader />;
+  }
 
   return children;
 }
