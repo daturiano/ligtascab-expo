@@ -1,14 +1,12 @@
-import { Link, useRouter } from 'expo-router';
+import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
-import { useTheme } from '~/src/components/theme-provider';
 import ThemedText from '~/src/components/themed-text';
 import ThemedView from '~/src/components/themed-view';
 import Logo from '~/src/components/ui/logo';
+import { useTheme } from '../components/theme-provider';
 
-export default function Home() {
+export default function InitialScreen() {
   const { theme } = useTheme();
-  const router = useRouter();
-
   return (
     <ThemedView safe style={styles.container}>
       <View style={styles.header}>
@@ -23,13 +21,9 @@ export default function Home() {
           stress-free journey every time.
         </ThemedText>
       </View>
-      <View style={styles.buttonContainer}>
-        <Link href="/login" style={[styles.link, { backgroundColor: theme.primary }]}>
-          <ThemedText style={{ color: '#ffffff' }} size="xs">
-            Get Started
-          </ThemedText>
-        </Link>
-      </View>
+      <Link href="/login" style={[styles.link, { backgroundColor: theme.primary }]}>
+        <Text style={{ color: theme.background }}>Get Started</Text>
+      </Link>
     </ThemedView>
   );
 }
@@ -67,14 +61,11 @@ const styles = StyleSheet.create({
   textDescription: {
     textAlign: 'center',
   },
-  buttonContainer: {
-    width: '100%',
-    gap: 8,
-  },
   link: {
     width: '100%',
     padding: 12,
     borderRadius: 8,
+    alignItems: 'center',
     textAlign: 'center',
   },
 });

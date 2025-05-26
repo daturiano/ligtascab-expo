@@ -1,45 +1,15 @@
-import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Alert, Keyboard, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Keyboard, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import ThemedInput from '~/src/components/themed-input';
 import ThemedText from '~/src/components/themed-text';
 import ThemedView from '~/src/components/themed-view';
 import { Button } from '~/src/components/ui/button';
-import { supabase } from '~/src/services/supabase';
+import { useAuth } from '~/src/hooks/use-auth';
 
 export default function Login() {
+  const { signInWithPhoneNumber } = useAuth();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const router = useRouter();
-
-  async function signInWithPhoneNumber() {
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
-      phone: phoneNumber,
-      password: password,
-    });
-
-    if (error) Alert.alert(error.message);
-    setLoading(false);
-    router.push('/(private)/home');
-  }
-
-  // async function signUpWithEmail() {
-  //   setLoading(true);
-  //   const {
-  //     data: { session },
-  //     error,
-  //   } = await supabase.auth.signUp({
-  //     email: email,
-  //     password: password,
-  //   });
-
-  //   if (error) Alert.alert(error.message);
-  //   if (!session) Alert.alert('Please check your inbox for email verification!');
-  //   setLoading(false);
-  // }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -64,7 +34,7 @@ export default function Login() {
             autoCapitalize={'none'}
           />
         </View>
-        <Button title="Sign In" onPress={() => signInWithPhoneNumber()} />
+        <Button title="Sign In" onPress={() => signInWithPhoneNumber(phoneNumber, password)} />
       </ThemedView>
     </TouchableWithoutFeedback>
   );
