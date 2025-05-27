@@ -19,6 +19,7 @@ export default function ShiftPage() {
   const isScanningHandler = () => {
     setIsScanning((prev) => !prev);
   };
+
   return (
     <ThemedView style={styles.container}>
       <Card>
