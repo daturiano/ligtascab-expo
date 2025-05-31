@@ -1,12 +1,14 @@
+import { useTheme } from '@shopify/restyle';
 import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
-import { useTheme } from '~/src/components/theme-provider';
 import ThemedText from '~/src/components/themed-text';
 import ThemedView from '~/src/components/themed-view';
 import Logo from '~/src/components/ui/logo';
+import { Theme } from '~/src/theme/theme';
 
 export default function Index() {
-  const { theme } = useTheme();
+  const theme = useTheme<Theme>();
+  const { primary, mainBackground } = theme.colors;
 
   return (
     <ThemedView safe style={styles.container}>
@@ -22,8 +24,8 @@ export default function Index() {
           stress-free journey every time.
         </ThemedText>
       </View>
-      <Link href="/login" style={[styles.link, { backgroundColor: theme.primary }]}>
-        <Text style={{ color: theme.background }}>Get Started</Text>
+      <Link href="/login" style={[styles.link, { backgroundColor: primary }]}>
+        <Text style={{ color: mainBackground }}>Get Started</Text>
       </Link>
     </ThemedView>
   );

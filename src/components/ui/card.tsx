@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewProps } from 'react-native';
-import { useTheme } from '../theme-provider';
+import { StyleSheet, View, ViewProps } from 'react-native';
 import ThemedText from '../themed-text';
-import { padding } from '~/src/theme/spacing';
+import { Theme } from '~/src/theme/theme';
+import { useTheme } from '@shopify/restyle';
+import Box from './box';
+import Text from './text';
 
 type CardProps = ViewProps;
 type CardSectionProps = ViewProps;
 
 export function Card({ ...props }: CardProps) {
-  const { theme } = useTheme();
-  return <View style={[styles.card, padding.small, { backgroundColor: theme.card }]} {...props} />;
+  const theme = useTheme<Theme>();
+  const { cardBackground } = theme.colors;
+  return <Box style={[styles.card, { backgroundColor: cardBackground }]} {...props} padding="m" />;
 }
 
 export function CardHeader({ style, ...props }: CardSectionProps) {
@@ -17,12 +20,13 @@ export function CardHeader({ style, ...props }: CardSectionProps) {
 }
 
 export function CardTitle({ style, ...props }: React.ComponentProps<typeof ThemedText>) {
-  return <ThemedText style={[styles.title, style]} {...props} />;
+  return <Text style={[styles.title, style]} {...props} />;
 }
 
 export function CardDescription({ style, ...props }: React.ComponentProps<typeof Text>) {
-  const { theme } = useTheme();
-  return <Text style={[styles.description, style, { color: theme.muted }]} {...props} />;
+  const theme = useTheme<Theme>();
+  const { muted } = theme.colors;
+  return <Text style={[styles.description, style, { color: muted }]} {...props} />;
 }
 
 export function CardContent({ style, ...props }: CardSectionProps) {

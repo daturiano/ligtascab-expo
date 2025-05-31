@@ -1,9 +1,11 @@
 import { ActivityIndicator } from 'react-native';
-import { useTheme } from './theme-provider';
 import ThemedView from './themed-view';
+import { Theme } from '../theme/theme';
+import { useTheme } from '@shopify/restyle';
 
 export default function ThemedLoader() {
-  const { theme } = useTheme();
+  const theme = useTheme<Theme>();
+  const { primary } = theme.colors;
   return (
     <ThemedView
       style={{
@@ -11,7 +13,7 @@ export default function ThemedLoader() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <ActivityIndicator size="large" color={theme.primary} />
+      <ActivityIndicator size="large" color={primary} />
     </ThemedView>
   );
 }

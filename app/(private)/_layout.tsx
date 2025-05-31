@@ -1,28 +1,30 @@
+import { useTheme } from '@shopify/restyle';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Tabs } from 'expo-router';
 import { CarFront, CircleUser, House, ScanQrCode, Users } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AuthenticatedViewOnly from '~/src/components/auth-wrapper/authenticated-view-only';
 import HomeHeader from '~/src/components/home-header';
-import { useTheme } from '~/src/components/theme-provider';
+import { Theme } from '~/src/theme/theme';
 
 const queryClient = new QueryClient();
 
 export default function AuthenticatedLayout() {
-  const { theme } = useTheme();
+  const theme = useTheme<Theme>();
+  const { mainBackground, primary } = theme.colors;
 
   return (
     <QueryClientProvider client={queryClient}>
       <AuthenticatedViewOnly>
         <SafeAreaView
           edges={['top', 'left', 'right']}
-          style={{ flex: 1, backgroundColor: theme.background }}>
+          style={{ flex: 1, backgroundColor: mainBackground }}>
           <HomeHeader />
           <Tabs
             screenOptions={{
               headerShown: false,
-              tabBarActiveTintColor: theme.primary,
-              tabBarStyle: { backgroundColor: theme.background },
+              tabBarActiveTintColor: primary,
+              tabBarStyle: { backgroundColor: mainBackground },
             }}>
             <Tabs.Screen
               name="home"

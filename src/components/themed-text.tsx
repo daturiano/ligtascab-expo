@@ -1,5 +1,6 @@
 import { StyleProp, StyleSheet, Text, TextProps, TextStyle } from 'react-native';
-import { useTheme } from './theme-provider';
+import { Theme } from '../theme/theme';
+import { useTheme } from '@shopify/restyle';
 
 type FontSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl';
 
@@ -9,10 +10,11 @@ type ThemedTextProps = {
 } & TextProps;
 
 export default function ThemedText({ style, size = 'sm', ...props }: ThemedTextProps) {
-  const { theme } = useTheme();
+  const theme = useTheme<Theme>();
+  const { mainBackground } = theme.colors;
   const styles = createFontSizeStyles(size);
 
-  return <Text style={[{ color: theme.text }, styles.size, style]} {...props} />;
+  return <Text style={[{ color: mainBackground }, styles.size, style]} {...props} />;
 }
 
 const createFontSizeStyles = (size: FontSize = 'sm') => {
