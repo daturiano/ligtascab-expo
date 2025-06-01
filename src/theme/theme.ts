@@ -1,4 +1,5 @@
 import { createTheme } from '@shopify/restyle';
+import { buttonVariants } from '../components/ui/button';
 
 const palette = {
   yellowLight: '#fdca48',
@@ -9,7 +10,7 @@ const palette = {
   greenPrimary: '#1daa88',
   greenDark: '#189375',
 
-  mutedLight: '#808080',
+  mutedLight: '#e3e3e3',
   mutedPrimary: '#737373',
   mutedDark: '#636363',
 
@@ -27,17 +28,23 @@ const theme = createTheme({
     cardForeground: '#000000',
     primary: palette.greenPrimary,
     secondary: palette.yellowPrimary,
+    mutedLight: palette.mutedLight,
     muted: palette.mutedPrimary,
     description: '#5e5e5e',
+    transparent: 'transparent',
   },
   spacing: {
     s: 8,
-    m: 16,
-    l: 24,
-    xl: 32,
-    xxl: 40,
+    m: 12,
+    l: 16,
+    xl: 24,
+    xxl: 32,
   },
-  border: {},
+  borderRadii: {
+    s: 4,
+    m: 8,
+    l: 12,
+  },
   textVariants: {
     header: {
       fontWeight: 'bold',
@@ -45,36 +52,26 @@ const theme = createTheme({
       fontSize: 42,
       lineHeight: 42,
     },
+    subheader: {
+      fontWeight: 'bold',
+      fontFamily: 'Roboto_600SemiBold',
+      fontSize: 28,
+      lineHeight: 28,
+    },
     body: {
       fontSize: 16,
       lineHeight: 24,
     },
     description: {
       color: 'description',
-      fontSize: 16,
+      fontSize: 14,
       lineHeight: 24,
     },
     defaults: {
       fontFamily: ' Nunito_300Light',
     },
   },
-  buttonVariants: {
-    primary: {
-      backgroundColor: 'primary',
-      padding: 'm',
-      borderRadius: 'm',
-    },
-    secondary: {
-      backgroundColor: 'secondary',
-      padding: 'm',
-      borderRadius: 'm',
-    },
-    disabled: {
-      backgroundColor: 'gray',
-      padding: 'm',
-      borderRadius: 'm',
-    },
-  },
+  buttonVariants: buttonVariants,
 });
 
 export type Theme = typeof theme;

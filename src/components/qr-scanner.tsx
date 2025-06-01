@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Driver } from '../types';
 import { fetchDriverDetails } from '../services/shifts';
-import ThemedView from './themed-view';
+import ThemedView from './container';
 
 export default function QRScanner() {
   const [facing, setFacing] = useState<CameraType>('back');

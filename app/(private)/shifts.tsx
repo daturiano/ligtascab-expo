@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import QRScanner from '~/src/components/qr-scanner';
-import ThemedView from '~/src/components/themed-view';
+import ThemedView from '~/src/components/container';
 import { Button } from '~/src/components/ui/button';
 import {
   Card,

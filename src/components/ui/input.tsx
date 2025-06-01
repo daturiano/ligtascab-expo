@@ -1,22 +1,19 @@
 import { useTheme } from '@shopify/restyle';
 import { StyleProp, StyleSheet, TextInput, TextInputProps } from 'react-native';
-import { Theme } from '../theme/theme';
+import { Theme } from '../../theme/theme';
 
 type ThemedInputProps = {
   style?: StyleProp<TextInput>;
 } & TextInputProps;
 
-export default function ThemedInput({ style, ...props }: ThemedInputProps) {
+export default function Input({ style, ...props }: ThemedInputProps) {
   const theme = useTheme<Theme>();
-  const { mainBackground, muted } = theme.colors;
+  const { mainBackground, description, mutedLight } = theme.colors;
 
   return (
     <TextInput
-      style={[
-        { borderColor: muted, backgroundColor: mainBackground, color: muted },
-        styles.input,
-        style,
-      ]}
+      placeholderTextColor={description}
+      style={[{ borderColor: mutedLight, backgroundColor: mainBackground }, styles.input, style]}
       {...props}
     />
   );
@@ -24,6 +21,7 @@ export default function ThemedInput({ style, ...props }: ThemedInputProps) {
 
 const styles = StyleSheet.create({
   input: {
+    width: '100%',
     padding: 12,
     borderWidth: 1,
     borderRadius: 8,

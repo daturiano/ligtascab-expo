@@ -2,7 +2,7 @@ import { useTheme } from '@shopify/restyle';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Container from '~/src/components/container';
 import Box from '~/src/components/ui/box';
 import BrandName from '~/src/components/ui/brand-name';
 import Text from '~/src/components/ui/text';
@@ -11,16 +11,10 @@ import { Theme } from '~/src/theme/theme';
 export default function Index() {
   const theme = useTheme<Theme>();
   const { primary, mainBackground, muted } = theme.colors;
-  const insets = useSafeAreaInsets();
   const router = useRouter();
 
   return (
-    <Box
-      flex={1}
-      alignItems="center"
-      justifyContent="space-between"
-      paddingHorizontal="xl"
-      style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+    <Container>
       <BrandName />
       <Image style={styles.image} source={require('~/src/assets/welcome.svg')} />
       <Box flexDirection="column" gap="m" alignItems="center">
@@ -55,7 +49,7 @@ export default function Index() {
           <Text variant="body">I already have an account</Text>
         </Pressable>
       </Box>
-    </Box>
+    </Container>
   );
 }
 

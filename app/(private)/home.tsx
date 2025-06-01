@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet } from 'react-native';
-import ThemedView from '~/src/components/themed-view';
+import ThemedView from '~/src/components/container';
 import Text from '~/src/components/ui/text';
 import { useAuth } from '~/src/hooks/use-auth';
 
