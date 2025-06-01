@@ -1,74 +1,77 @@
 import { useTheme } from '@shopify/restyle';
-import { Link } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
-import ThemedText from '~/src/components/themed-text';
-import ThemedView from '~/src/components/themed-view';
-import Logo from '~/src/components/ui/logo';
+import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
+import { Pressable, StyleSheet } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Box from '~/src/components/ui/box';
+import BrandName from '~/src/components/ui/brand-name';
+import Text from '~/src/components/ui/text';
 import { Theme } from '~/src/theme/theme';
 
 export default function Index() {
   const theme = useTheme<Theme>();
-  const { primary, mainBackground } = theme.colors;
+  const { primary, mainBackground, muted } = theme.colors;
+  const insets = useSafeAreaInsets();
+  const router = useRouter();
 
   return (
-    <ThemedView safe style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.brandName}>ligtascab.</Text>
-      </View>
-      <Logo variant="xl" />
-      <View style={styles.textContainer}>
-        <ThemedText style={styles.textSubtitle}>Welcome to LigtasCab!</ThemedText>
-        <ThemedText style={styles.textTitle}>Safe and smart transportation.</ThemedText>
-        <ThemedText style={styles.textDescription}>
+    <Box
+      flex={1}
+      alignItems="center"
+      justifyContent="space-between"
+      paddingHorizontal="xl"
+      style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+      <BrandName />
+      <Image style={styles.image} source={require('~/src/assets/welcome.svg')} />
+      <Box flexDirection="column" gap="m" alignItems="center">
+        <Text variant="body">Welcome to LigtasCab!</Text>
+        <Text variant="header" style={{ textAlign: 'center' }}>
+          Safe and smart transportation.
+        </Text>
+        <Text variant="body" style={{ textAlign: 'center' }}>
           Systemizing your daily travel by combining convenience, comfort, and efficiency for a
           stress-free journey every time.
-        </ThemedText>
-      </View>
-      <Link href="/login" style={[styles.link, { backgroundColor: primary }]}>
-        <Text style={{ color: mainBackground }}>Get Started</Text>
-      </Link>
-    </ThemedView>
+        </Text>
+      </Box>
+      <Box width={'100%'} gap="s">
+        <Pressable
+          onPress={() => router.push('/login')}
+          style={({ pressed }) => [
+            styles.link,
+            pressed && styles.pressed,
+            { backgroundColor: primary },
+          ]}>
+          <Text variant="body" style={{ color: mainBackground }}>
+            Get Started
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/login')}
+          style={({ pressed }) => [
+            styles.link,
+            pressed && styles.pressed,
+            { borderColor: muted, borderWidth: 1 },
+          ]}>
+          <Text variant="body">I already have an account</Text>
+        </Pressable>
+      </Box>
+    </Box>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  header: {
-    width: '100%',
-  },
-  brandName: {
-    fontSize: 26,
-    color: '#1daa88',
-    fontWeight: 'bold',
-    letterSpacing: -0.4,
-  },
-  textContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    gap: 16,
-  },
-  textSubtitle: {
-    fontWeight: 500,
-  },
-  textTitle: {
-    fontWeight: 800,
-    fontSize: 42,
-    textAlign: 'center',
-    lineHeight: 42,
-  },
-  textDescription: {
-    textAlign: 'center',
-  },
   link: {
     width: '100%',
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',
     textAlign: 'center',
+  },
+  image: {
+    width: 304,
+    height: 239,
+  },
+  pressed: {
+    opacity: 0.5,
   },
 });

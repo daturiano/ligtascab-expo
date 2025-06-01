@@ -31,19 +31,37 @@ const theme = createTheme({
     s: 8,
     m: 16,
     l: 24,
-    xl: 40,
+    xl: 32,
+    xxl: 40,
   },
+  border: {},
   textVariants: {
     header: {
       fontWeight: 'bold',
-      fontSize: 34,
+      fontSize: 42,
+      lineHeight: 42,
     },
     body: {
       fontSize: 16,
       lineHeight: 24,
     },
-    defaults: {
-      // We can define a default text variant here.
+    defaults: {},
+  },
+  buttonVariants: {
+    primary: {
+      backgroundColor: 'primary',
+      padding: 'm',
+      borderRadius: 'm',
+    },
+    secondary: {
+      backgroundColor: 'secondary',
+      padding: 'm',
+      borderRadius: 'm',
+    },
+    disabled: {
+      backgroundColor: 'gray',
+      padding: 'm',
+      borderRadius: 'm',
     },
   },
 });
