@@ -28,7 +28,7 @@ export default function Index() {
         <Text variant="header" style={{ textAlign: 'center' }}>
           Safe and smart transportation.
         </Text>
-        <Text variant="body" style={{ textAlign: 'center' }}>
+        <Text variant="description" style={{ textAlign: 'center' }}>
           Systemizing your daily travel by combining convenience, comfort, and efficiency for a
           stress-free journey every time.
         </Text>

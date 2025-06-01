@@ -13,6 +13,8 @@ const palette = {
   mutedPrimary: '#737373',
   mutedDark: '#636363',
 
+  description: '#5e5e5e',
+
   black: '#0a0a0a',
   white: '#f7f5f2',
 };
@@ -26,6 +28,7 @@ const theme = createTheme({
     primary: palette.greenPrimary,
     secondary: palette.yellowPrimary,
     muted: palette.mutedPrimary,
+    description: '#5e5e5e',
   },
   spacing: {
     s: 8,
@@ -38,6 +41,7 @@ const theme = createTheme({
   textVariants: {
     header: {
       fontWeight: 'bold',
+      fontFamily: 'Roboto_600SemiBold',
       fontSize: 42,
       lineHeight: 42,
     },
@@ -45,7 +49,14 @@ const theme = createTheme({
       fontSize: 16,
       lineHeight: 24,
     },
-    defaults: {},
+    description: {
+      color: 'description',
+      fontSize: 16,
+      lineHeight: 24,
+    },
+    defaults: {
+      fontFamily: ' Nunito_300Light',
+    },
   },
   buttonVariants: {
     primary: {

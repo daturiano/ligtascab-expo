@@ -1,12 +1,34 @@
+import { Nunito_800ExtraBold, Nunito_300Light } from '@expo-google-fonts/nunito';
+import { Roboto_700Bold, Roboto_600SemiBold, useFonts } from '@expo-google-fonts/roboto';
 import { ThemeProvider } from '@shopify/restyle';
-import { Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { AuthProvider } from '~/src/contexts/auth-context';
 import theme from '~/src/theme/theme';
 export { ErrorBoundary } from 'expo-router';
 
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
+  const [loaded, error] = useFonts({
+    Roboto_600SemiBold,
+    Roboto_700Bold,
+    Nunito_300Light,
+    Nunito_800ExtraBold,
+  });
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
+
   return (
     <AuthProvider>
       <ThemeProvider theme={theme}>

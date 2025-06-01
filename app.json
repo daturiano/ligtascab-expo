@@ -3,12 +3,11 @@
     "name": "ligtascab-expo",
     "slug": "ligtascab-expo",
     "version": "1.0.0",
-
     "scheme": "ligtascab-expo",
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "~/src/assets/icon.png"
+      "favicon": "~/src/assets/logo.svg"
     },
     "plugins": [
       "expo-router",
@@ -19,21 +18,18 @@
           "microphonePermission": "Allow ligtascab to access your microphone",
           "recordAudioAndroid": true
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
-    "icon": "~/src/assets/icon.png",
-
+    "icon": "~/src/assets/ligtascab.svg",
     "userInterfaceStyle": "light",
-
     "splash": {
-      "image": "~/src/assets/icon.png",
+      "image": "~/src/assets/ligtascab.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -43,7 +39,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "~/src/assets/adaptive-icon.png",
+        "foregroundImage": "~/src/assets/ligtascab.svg",
         "backgroundColor": "#ffffff"
       }
     }
