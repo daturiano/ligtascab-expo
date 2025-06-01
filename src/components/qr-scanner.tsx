@@ -38,9 +38,9 @@ export default function QRScanner() {
 
   if (driver)
     return (
-      <ThemedView>
+      <View>
         <Text>{driver.last_name}</Text>
-      </ThemedView>
+      </View>
     );
 
   function toggleCameraFacing() {
@@ -59,22 +59,26 @@ export default function QRScanner() {
         }}
         barcodeScannerSettings={{
           barcodeTypes: ['qr'],
-        }}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={toggleCameraFacing}>
-            <SwitchCamera color={'#ffffff'} size={32} />
-          </TouchableOpacity>
-        </View>
-      </CameraView>
+        }}
+      />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={toggleCameraFacing}>
+          <SwitchCamera color={'#ffffff'} size={32} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    position: 'relative',
     width: '100%',
-    height: '80%',
+    height: '75%',
     justifyContent: 'center',
+    borderWidth: 8,
+    borderColor: '#ffffff',
+    overflow: 'hidden',
   },
   camera: {
     flex: 1,

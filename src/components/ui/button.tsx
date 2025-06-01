@@ -44,7 +44,7 @@ export const buttonVariants = {
   outline: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: 'primary',
+    borderColor: 'mainForeground',
   },
   ghost: {
     backgroundColor: 'transparent',

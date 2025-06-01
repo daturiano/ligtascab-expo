@@ -1,22 +1,17 @@
 import { Pressable, StyleSheet } from 'react-native';
-import ThemedView from '~/src/components/container';
+import Box from '~/src/components/ui/box';
 import Text from '~/src/components/ui/text';
 import { useAuth } from '~/src/hooks/use-auth';
 
 export default function HomePage() {
   const { signOutUser } = useAuth();
   return (
-    <ThemedView style={styles.container}>
+    <Box flex={1} alignItems="center" justifyContent="center">
       <Pressable onPress={signOutUser}>
         <Text>Logout</Text>
       </Pressable>
-    </ThemedView>
+    </Box>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
+const styles = StyleSheet.create({});

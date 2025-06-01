@@ -1,9 +1,8 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import QRScanner from '~/src/components/qr-scanner';
-import ThemedView from '~/src/components/container';
-import { Button } from '~/src/components/ui/button';
+import Button from '~/src/components/ui/button';
 import {
   Card,
   CardContent,
@@ -12,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '~/src/components/ui/card';
+import Text from '~/src/components/ui/text';
 
 export default function ShiftPage() {
   const [isScanning, setIsScanning] = useState<boolean>(false);
@@ -21,7 +21,7 @@ export default function ShiftPage() {
   };
 
   return (
-    <ThemedView style={styles.container}>
+    <View style={styles.container}>
       <Card>
         <CardHeader>
           <CardTitle>Log Driver Attendance</CardTitle>
@@ -39,14 +39,14 @@ export default function ShiftPage() {
           )}
         </CardContent>
         <CardFooter>
-          <Button
-            title={isScanning ? 'Cancel' : 'Start Log Attendance'}
-            onPress={isScanningHandler}
-            variant={isScanning ? 'secondary' : 'primary'}
-          />
+          <Button onPress={isScanningHandler} variant={isScanning ? 'outline' : 'primary'}>
+            <Text color={isScanning ? 'mainForeground' : 'mainBackground'} fontWeight={600}>
+              {isScanning ? 'Cancel' : 'Start Log Attendance'}
+            </Text>
+          </Button>
         </CardFooter>
       </Card>
-    </ThemedView>
+    </View>
   );
 }
 

@@ -12,7 +12,7 @@ type CardSectionProps = ViewProps;
 export function Card({ ...props }: CardProps) {
   const theme = useTheme<Theme>();
   const { cardBackground } = theme.colors;
-  return <Box style={[styles.card, { backgroundColor: cardBackground }]} {...props} padding="m" />;
+  return <Box style={[styles.card, { backgroundColor: cardBackground }]} {...props} padding="xl" />;
 }
 
 export function CardHeader({ style, ...props }: CardSectionProps) {
