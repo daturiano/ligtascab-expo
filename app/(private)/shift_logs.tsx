@@ -12,7 +12,7 @@ export default function ShiftLogs() {
   });
 
   return (
-    <Box backgroundColor="mainBackground" padding="l" gap="l">
+    <Box backgroundColor="mainBackground" padding="l" gap="l" flex={1}>
       <Text variant="subheader">Recent Logs</Text>
       {isLoading ? (
         <ActivityIndicator />
