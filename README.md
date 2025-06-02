@@ -13,7 +13,7 @@ Built with **React Native**, **Expo**, **TypeScript**, **Shopify Restyle** for t
 
 ## 📽 Demo
 
-[![Watch Demo](/src/assets/demo.png)](https://youtube.com/shorts/o6a8ntT7t0I)
+[![Watch Demo](/src/assets/demo1.png)](https://youtube.com/shorts/o6a8ntT7t0I)
 
 ---
 
