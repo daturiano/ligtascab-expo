@@ -24,6 +24,16 @@ export default function InsideLayout() {
               title: '',
             }}
           />
+          <Stack.Screen
+            name="shift_logs"
+            options={{
+              headerBackButtonDisplayMode: 'minimal',
+              headerTintColor: primary,
+              headerShadowVisible: false,
+              headerStyle: { backgroundColor: mainBackground },
+              title: '',
+            }}
+          />
         </Stack>
       </QueryClientProvider>
     </AuthenticatedViewOnly>

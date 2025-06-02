@@ -30,3 +30,12 @@ export const createShiftLog = async (newLog: ShiftLog): Promise<boolean> => {
 
   return true;
 };
+
+export const fetchAllShiftLogs = async () => {
+  const { data } = await supabase
+    .from('sample_shifts')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  return { data: data || [] };
+};
