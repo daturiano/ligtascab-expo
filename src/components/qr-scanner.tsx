@@ -3,14 +3,16 @@ import { useQuery } from '@tanstack/react-query';
 import { BarcodeScanningResult, CameraType, CameraView, useCameraPermissions } from 'expo-camera';
 import { SwitchCamera } from 'lucide-react-native';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Driver } from '../types';
 import { fetchDriverDetails } from '../services/shifts';
-import ThemedView from './container';
+import ShiftForm from './shift-form';
 
-type QRScannerProps = {};
+type QRScannerProps = {
+  setDriver: (driver: Driver) => void;
+};
 
-export default function QRScanner() {
+export default function QRScanner({ setDriver }: QRScannerProps) {
   const [facing, setFacing] = useState<CameraType>('back');
   const [permission, requestPermission] = useCameraPermissions();
   const [scanResult, setScanResult] = useState('');
@@ -38,12 +40,9 @@ export default function QRScanner() {
     return <View />;
   }
 
-  if (driver)
-    return (
-      <View>
-        <Text>{driver.last_name}</Text>
-      </View>
-    );
+  if (driver) {
+    setDriver(driver);
+  }
 
   function toggleCameraFacing() {
     setFacing((current) => (current === 'back' ? 'front' : 'back'));

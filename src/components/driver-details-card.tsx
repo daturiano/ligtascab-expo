@@ -37,8 +37,9 @@ export default function DriverDetailsCard() {
 
   return (
     <Box
-      borderWidth={2}
-      borderColor="mutedLight"
+      borderWidth={1}
+      borderColor="mutedLighter"
+      backgroundColor="grayLight"
       width={'100%'}
       justifyContent="center"
       borderRadius="m"

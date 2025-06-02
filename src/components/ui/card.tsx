@@ -47,6 +47,7 @@ export function CardFooter({ style, ...props }: CardSectionProps) {
 
 const styles = StyleSheet.create({
   card: {
+    position: 'relative',
     flex: 1,
     width: '100%',
     gap: 24,

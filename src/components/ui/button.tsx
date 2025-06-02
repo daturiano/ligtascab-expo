@@ -46,6 +46,11 @@ export const buttonVariants = {
     borderWidth: 1,
     borderColor: 'mainForeground',
   },
+  input: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'mutedLighter',
+  },
   ghost: {
     backgroundColor: 'transparent',
   },

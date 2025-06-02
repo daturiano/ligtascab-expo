@@ -1,3 +1,4 @@
+import { ShiftLog } from '../types';
 import { supabase } from './supabase';
 
 export async function fetchDriverDetails(driver_id: string) {
@@ -18,3 +19,14 @@ export async function fetchAllAvailableTricycles() {
 
   return { data, error };
 }
+
+export const createShiftLog = async (newLog: ShiftLog): Promise<boolean> => {
+  const { error } = await supabase.from('sample_shifts').insert([newLog]).select().single();
+
+  if (error) {
+    console.error('Error inserting log:', error);
+    return false;
+  }
+
+  return true;
+};
