@@ -1,6 +1,6 @@
 # 🚖 Ligtascab Mobile App
 
-A modern mobile application for managing tricycle driver attendance and shift tracking, built with **React Native**, **Expo**, **TypeScript**, **Shopify Restyle** for theming, and **Supabase** for backend services.
+Built with **React Native**, **Expo**, **TypeScript**, **Shopify Restyle** for theming, and **Supabase** for backend services.
 
 <div align="center">
   <img src="https://img.shields.io/badge/React%20Native-2025-blue?logo=react" />
@@ -13,18 +13,17 @@ A modern mobile application for managing tricycle driver attendance and shift tr
 
 ## 📽 Demo
 
-![Watch the demo](https://youtube.com/shorts/o6a8ntT7t0I?feature=share)
+[![Watch Demo](/src/assets/demo.png)](https://youtube.com/shorts/o6a8ntT7t0I)
 
 ---
 
 ## ✨ Features
 
 - 📲 Mobile-first interface with intuitive navigation
-- 👤 Driver profile & emergency contact display
 - 🗓 Attendance logging & shift tracking
 - 🛺 Tricycle selection & usage history
 - 🧑‍🎨 Themed UI with Shopify Restyle
-- 🧑‍💻 Supabase-powered backend (auth, data storage)
+- 🧑‍💻 Supabase-powered backend (auth)
 
 ---
 
