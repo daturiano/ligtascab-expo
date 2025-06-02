@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 import Box from '~/src/components/ui/box';
 import Text from '~/src/components/ui/text';
 import { useAuth } from '~/src/hooks/use-auth';
@@ -18,5 +18,3 @@ export default function DriverPage() {
     </Box>
   );
 }
-
-const styles = StyleSheet.create({});

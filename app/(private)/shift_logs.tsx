@@ -22,7 +22,7 @@ export default function ShiftLogs() {
             style={{ borderRadius: 12 }}
             data={shift_logs?.data}
             renderItem={({ item }) => <ShiftLogCard shift={item} />}
-            keyExtractor={(item) => item.plate_number}
+            keyExtractor={(item) => item.id}
           />
         </Box>
       )}

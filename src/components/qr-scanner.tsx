@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useQuery } from '@tanstack/react-query';
 import { BarcodeScanningResult, CameraType, CameraView, useCameraPermissions } from 'expo-camera';
 import { SwitchCamera } from 'lucide-react-native';
 import { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { Driver } from '../types';
 import { fetchDriverDetails } from '../services/shifts';
-import ShiftForm from './shift-form';
+import { Driver } from '../types';
 
 type QRScannerProps = {
   setDriver: (driver: Driver) => void;
@@ -36,12 +34,14 @@ export default function QRScanner({ setDriver }: QRScannerProps) {
     retry: true,
   });
 
+  useEffect(() => {
+    if (driver) {
+      setDriver(driver);
+    }
+  }, [driver, setDriver]);
+
   if (!permission) {
     return <View />;
-  }
-
-  if (driver) {
-    setDriver(driver);
   }
 
   function toggleCameraFacing() {

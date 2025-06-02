@@ -22,19 +22,7 @@ function DriverDetails({ title, description, children }: DriverDetailsProps) {
   );
 }
 
-export default function DriverDetailsCard() {
-  const { data: driver } = useQuery<Driver | null>({
-    queryKey: ['driver'],
-    queryFn: async () => {
-      const { data, error } = await fetchDriverDetails('0ad5bde5-5fb1-4523-8132-856c57af0b88');
-      console.log(error);
-      return data;
-    },
-    retry: true,
-  });
-
-  if (!driver) return null;
-
+export default function DriverDetailsCard({ driver }: { driver: Driver }) {
   return (
     <Box
       borderWidth={1}

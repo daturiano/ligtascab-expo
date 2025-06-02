@@ -80,7 +80,7 @@ export default function ShiftForm({ driver, reset }: ShiftFormProps) {
               Log Successfully!
             </Text>
           )}
-          <DriverDetailsCard />
+          <DriverDetailsCard driver={driver} />
           <Box flexDirection="row" maxWidth={'100%'} gap="m" justifyContent="space-between">
             <Box gap="s" flex={1}>
               <Text fontSize={14}>Select Available Tricycle</Text>
