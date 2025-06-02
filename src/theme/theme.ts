@@ -10,7 +10,11 @@ const palette = {
   greenPrimary: '#1daa88',
   greenDark: '#189375',
 
-  mutedLight: '#f1f3f5',
+  grayLighter: '#ececec',
+  grayLight: '#f3f3f3',
+
+  mutedLighter: '#d3d3d3',
+  mutedLight: '#c5c5c5',
   mutedPrimary: '#737373',
   mutedDark: '#636363',
 
@@ -28,6 +32,9 @@ const theme = createTheme({
     cardForeground: '#000000',
     primary: palette.greenPrimary,
     secondary: palette.yellowPrimary,
+    grayLighter: palette.grayLighter,
+    grayLight: palette.grayLight,
+    mutedLighter: palette.mutedLighter,
     mutedLight: palette.mutedLight,
     muted: palette.mutedPrimary,
     description: '#5e5e5e',
