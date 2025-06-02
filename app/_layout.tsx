@@ -1,5 +1,5 @@
-import { Nunito_800ExtraBold, Nunito_300Light } from '@expo-google-fonts/nunito';
-import { Roboto_700Bold, Roboto_600SemiBold, useFonts } from '@expo-google-fonts/roboto';
+import { Nunito_300Light, Nunito_800ExtraBold } from '@expo-google-fonts/nunito';
+import { Roboto_600SemiBold, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
 import { ThemeProvider } from '@shopify/restyle';
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -37,10 +37,8 @@ export default function RootLayout() {
           screenOptions={{
             headerTintColor: '#1daa88',
             headerShown: false,
-          }}>
-          <Stack.Screen name="(private)" />
-          <Stack.Screen name="(authentication)" />
-        </Stack>
+          }}
+        />
       </ThemeProvider>
     </AuthProvider>
   );
