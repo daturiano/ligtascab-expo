@@ -10,7 +10,7 @@ const palette = {
   greenPrimary: '#1daa88',
   greenDark: '#189375',
 
-  mutedLight: '#e3e3e3',
+  mutedLight: '#f1f3f5',
   mutedPrimary: '#737373',
   mutedDark: '#636363',
 
@@ -34,6 +34,7 @@ const theme = createTheme({
     transparent: 'transparent',
   },
   spacing: {
+    xs: 4,
     s: 8,
     m: 12,
     l: 16,

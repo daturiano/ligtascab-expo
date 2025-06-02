@@ -8,6 +8,8 @@ import { Driver } from '../types';
 import { fetchDriverDetails } from '../services/shifts';
 import ThemedView from './container';
 
+type QRScannerProps = {};
+
 export default function QRScanner() {
   const [facing, setFacing] = useState<CameraType>('back');
   const [permission, requestPermission] = useCameraPermissions();

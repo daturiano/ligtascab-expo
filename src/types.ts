@@ -13,4 +13,5 @@ export type Driver = {
   image?: string;
   address: string;
   birth_date: Date;
+  updated_at: Date;
 };

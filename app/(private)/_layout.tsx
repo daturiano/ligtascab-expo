@@ -25,6 +25,7 @@ export default function AuthenticatedLayout() {
               headerShown: false,
               tabBarActiveTintColor: primary,
               tabBarStyle: { backgroundColor: mainBackground },
+              sceneStyle: { padding: 16 },
             }}>
             <Tabs.Screen
               name="home"

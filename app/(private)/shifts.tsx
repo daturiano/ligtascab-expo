@@ -15,9 +15,14 @@ import Text from '~/src/components/ui/text';
 
 export default function ShiftPage() {
   const [isScanning, setIsScanning] = useState<boolean>(false);
+  const [scanSuccess, setScanSuccess] = useState(false);
 
   const isScanningHandler = () => {
     setIsScanning((prev) => !prev);
+  };
+
+  const scanSuccessHandler = () => {
+    setScanSuccess((prev) => !prev);
   };
 
   return (
@@ -54,8 +59,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingBottom: 16,
   },
   image: {
     width: 280,

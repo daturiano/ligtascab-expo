@@ -1,18 +1,26 @@
 import React from 'react';
-import { StyleSheet, View, ViewProps } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 import ThemedText from '../themed-text';
 import { Theme } from '~/src/theme/theme';
 import { useTheme } from '@shopify/restyle';
 import Box from './box';
 import Text from './text';
 
-type CardProps = ViewProps;
+type CardProps = {
+  style?: StyleProp<ViewStyle>;
+} & ViewProps;
 type CardSectionProps = ViewProps;
 
-export function Card({ ...props }: CardProps) {
+export function Card({ style, ...props }: CardProps) {
   const theme = useTheme<Theme>();
   const { cardBackground } = theme.colors;
-  return <Box style={[styles.card, { backgroundColor: cardBackground }]} {...props} padding="xl" />;
+  return (
+    <Box
+      style={[styles.card, { backgroundColor: cardBackground }, style]}
+      {...props}
+      padding="xl"
+    />
+  );
 }
 
 export function CardHeader({ style, ...props }: CardSectionProps) {
@@ -39,8 +47,8 @@ export function CardFooter({ style, ...props }: CardSectionProps) {
 
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
     width: '100%',
-    height: '100%',
     gap: 24,
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -66,7 +74,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   content: {
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
