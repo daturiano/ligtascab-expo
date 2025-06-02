@@ -13,10 +13,7 @@ A modern mobile application for managing tricycle driver attendance and shift tr
 
 ## 📽 Demo
 
-> 🟢 **Coming soon** — A short video walkthrough demonstrating the core features of the app.
-
-<!-- Replace the link below when your demo is ready -->
-<!-- ![Watch the demo](https://your-demo-link.com) -->
+![Watch the demo](https://youtube.com/shorts/o6a8ntT7t0I?feature=share)
 
 ---
 
