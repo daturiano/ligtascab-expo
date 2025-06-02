@@ -13,5 +13,3 @@ export default function HomePage() {
     </Box>
   );
 }
-
-const styles = StyleSheet.create({});
