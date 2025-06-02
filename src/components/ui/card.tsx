@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
-import ThemedText from '../themed-text';
 import { Theme } from '~/src/theme/theme';
 import { useTheme } from '@shopify/restyle';
 import Box from './box';
@@ -27,7 +26,7 @@ export function CardHeader({ style, ...props }: CardSectionProps) {
   return <View style={[styles.header, style]} {...props} />;
 }
 
-export function CardTitle({ style, ...props }: React.ComponentProps<typeof ThemedText>) {
+export function CardTitle({ style, ...props }: React.ComponentProps<typeof Text>) {
   return <Text style={[styles.title, style]} {...props} />;
 }
 

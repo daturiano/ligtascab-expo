@@ -1,6 +1,4 @@
-import { Bell } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
-import ThemedIcon from '~/src/components/themed-icon';
 import Box from './ui/box';
 import Logo from './ui/logo';
 
@@ -11,7 +9,6 @@ export default function HomeHeader() {
         <Logo />
         <Text style={styles.brandName}>ligtascab.</Text>
       </View>
-      <ThemedIcon icon={Bell} />
     </Box>
   );
 }

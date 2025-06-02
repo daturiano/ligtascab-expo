@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { ActivityIndicator, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import ShiftLogCard from '~/src/components/shift-log-card';
+import ThemedLoader from '~/src/components/ui/spinner';
 import Box from '~/src/components/ui/box';
 import Text from '~/src/components/ui/text';
 import { fetchAllShiftLogs } from '~/src/services/shifts';
@@ -15,7 +16,7 @@ export default function ShiftLogs() {
     <Box backgroundColor="mainBackground" padding="l" gap="l" flex={1}>
       <Text variant="subheader">Recent Logs</Text>
       {isLoading ? (
-        <ActivityIndicator />
+        <ThemedLoader />
       ) : (
         <Box maxHeight={'90%'}>
           <FlatList

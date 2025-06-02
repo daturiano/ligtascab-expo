@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { ActivityIndicator, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import AvailableTricycleCard from '~/src/components/available-tricycle-card';
+import ThemedLoader from '~/src/components/ui/spinner';
 import Box from '~/src/components/ui/box';
 import Text from '~/src/components/ui/text';
 import { fetchAllAvailableTricycles } from '~/src/services/shifts';
@@ -15,7 +16,7 @@ export default function AvailableTricycles() {
     <Box backgroundColor="mainBackground" padding="l" gap="l">
       <Text variant="subheader">Available Tricycles</Text>
       {isLoading ? (
-        <ActivityIndicator />
+        <ThemedLoader />
       ) : (
         <Box maxHeight={'90%'}>
           <FlatList

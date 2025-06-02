@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import React, { useEffect } from 'react';
 import { useAuth } from '~/src/hooks/use-auth';
-import ThemedLoader from '../themed-loader';
+import ThemedLoader from '../ui/spinner';
 
 export default function AuthenticatedViewOnly({ children }: { children: React.ReactNode }) {
   const { session, authChecked } = useAuth();

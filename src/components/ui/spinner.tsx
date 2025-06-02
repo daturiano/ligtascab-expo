@@ -1,6 +1,6 @@
 import { ActivityIndicator } from 'react-native';
-import ThemedView from './container';
-import { Theme } from '../theme/theme';
+import ThemedView from '../container';
+import { Theme } from '../../theme/theme';
 import { useTheme } from '@shopify/restyle';
 
 export default function ThemedLoader() {
